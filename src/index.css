@@ -9,6 +9,10 @@ body {
 
 nav {
     padding: 0 1rem;
+    margin-left: 30px;
+    border-radius: 10px;
+    margin-right: 30px;
+    width: auto;
 }
 
 .content {
@@ -30,4 +34,10 @@ nav {
 
 label:not(:last-child) {
     margin-right: 1rem;
+}
+
+footer {
+    margin-left: 30px;
+    border-radius: 10px;
+    margin-right: 30px;
 }
