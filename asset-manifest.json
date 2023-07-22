@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Arnohollowknight/Shop-project/static/css/main.954e7325.css",
-    "main.js": "/Arnohollowknight/Shop-project/static/js/main.fe4d0e5f.js",
-    "index.html": "/Arnohollowknight/Shop-project/index.html",
-    "main.954e7325.css.map": "/Arnohollowknight/Shop-project/static/css/main.954e7325.css.map",
-    "main.fe4d0e5f.js.map": "/Arnohollowknight/Shop-project/static/js/main.fe4d0e5f.js.map"
+    "main.css": "/Movie-project/static/css/main.16bf052c.css",
+    "main.js": "/Movie-project/static/js/main.cfdf55cd.js",
+    "index.html": "/Movie-project/index.html",
+    "main.16bf052c.css.map": "/Movie-project/static/css/main.16bf052c.css.map",
+    "main.cfdf55cd.js.map": "/Movie-project/static/js/main.cfdf55cd.js.map"
   },
   "entrypoints": [
-    "static/css/main.954e7325.css",
-    "static/js/main.fe4d0e5f.js"
+    "static/css/main.16bf052c.css",
+    "static/js/main.cfdf55cd.js"
   ]
 }
