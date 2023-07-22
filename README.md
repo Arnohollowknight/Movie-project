@@ -1,3 +1,1 @@
-# React Shop Porfolio Project
-
-[Demo](https://michey85.github.io/react-shop).
+This project was created for a personal portfolio and is not intended for commercial use.

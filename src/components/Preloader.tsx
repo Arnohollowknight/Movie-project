@@ -1,7 +1,8 @@
-function Preloader() {
+
+const Preloader = (): JSX.Element => {
     return <div className="progress">
         <div className="indeterminate"></div>
     </div>
 }
 
-export {Preloader}
+export default Preloader;

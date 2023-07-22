@@ -1,4 +1,13 @@
-function Movie(props) {
+
+interface MovieProps {
+    Title: string;
+    Year: string;
+    imdbID: string;
+    Type: string;
+    Poster: string;
+  }
+
+const Movie = (props: MovieProps): JSX.Element => {
     const {
         Title: title,
         Year: year,
@@ -14,9 +23,9 @@ function Movie(props) {
                     <img
                         className='activator'
                         src={`https://via.placeholder.com/300x400?text=${title}`}
-                    />
+                    alt="Movie poster" width="300" height="450"/>
                 ) : (
-                    <img className='activator' src={poster} />
+                    <img className='activator' src={poster} alt="Movie poster" width="300" height="450"/>
                 )}
             </div>
             <div className='card-content'>
@@ -30,4 +39,5 @@ function Movie(props) {
         </div>
     );
 }
-export { Movie };
+export {Movie};
+export type {MovieProps};

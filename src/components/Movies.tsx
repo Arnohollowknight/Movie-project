@@ -1,6 +1,11 @@
-import { Movie } from './Movie';
+import { Movie, MovieProps } from './Movie';
 
-function Movies(props) {
+
+interface MoviesProps {
+    movies: MovieProps[];
+};
+
+const Movies = (props: MoviesProps): JSX.Element => {
     const { movies = [] } = props;
 
     return (
@@ -13,4 +18,4 @@ function Movies(props) {
         </div>
     );
 }
-export { Movies };
+export default Movies;
