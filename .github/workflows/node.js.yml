@@ -1,33 +1,5 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-name: Replace API Key
-
-on:
-  push:
-    branches:
-      - main 
-
-jobs:
-  replace-api-key:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Replace API Key
-        env:
-          API_KEY: ${{ secrets.REACT_APP_API_KEY }}
-        run: |
-          sed -i "s/REPLACE_API_KEY/${API_KEY}/" F:\Bandicam\Movie-project\src\constUrl.tsx
-          
-      - name: Commit changes
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git commit -a -m "Replace API Key"
-          git push
-
 
 name: CI
 
