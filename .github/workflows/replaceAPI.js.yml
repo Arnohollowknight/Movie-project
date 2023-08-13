@@ -24,7 +24,7 @@ jobs:
           git branch --set-upstream-to=origin/main main
           git pull origin main
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - name: Replace API Key
         env:
