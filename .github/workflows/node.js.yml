@@ -26,10 +26,11 @@ jobs:
 
       - name: Deploy to GitHub Pages
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }} # Используем значение вашего секрета
+          GH_TOKEN:
+            ${{ secrets.GH_TOKEN }}
+            # Используем значение вашего секрета
         run: |
           echo "API_KEY=$REACT_APP_API_KEY" >> .env
-          npm run deploy
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
           branch: gh-pages # Ветка, на которую будет опубликован сайт
