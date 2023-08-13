@@ -13,6 +13,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Configure Git
+        run: |
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          git remote remove origin
+          git remote add origin https://github.com/Arnohollowknight/Movie-project
+          git fetch
+          git checkout main
+          git branch --set-upstream-to=origin/main main
+          git pull origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Replace API Key
         env:
           API_KEY: ${{ secrets.REACT_APP_API_KEY }}
