@@ -1,4 +1,4 @@
-name: Replace API Key
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -6,35 +6,26 @@ on:
       - main
 
 jobs:
-  replace-api-key:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Configure Git
-        run: |
-          git config user.email "action@github.com"
-          git config user.name "GitHub Action"
-          git remote remove origin
-          git remote add origin https://github.com/Arnohollowknight/Movie-project
-          git fetch
-          git checkout main
-          git branch --set-upstream-to=origin/main main
-          git pull origin main
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14' # Выберите желаемую версию Node.js
 
-      - name: Replace API Key
-        env:
-          REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
-        run: |
-          sed -i "s/REPLACE_API_KEY/${REACT_APP_API_KEY}/" src/constUrl.tsx
+      - name: Install dependencies
+        run: npm install
 
-      - name: Commit changes
+      - name: Build the website
+        run: npm run build # Здесь выполните команду для сборки вашего сайта
+
+      - name: Deploy to GitHub Pages
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git commit -a -m "Replace API Key"
-          git push
+          echo "API_KEY=$REACT_APP_API_KEY" >> .env
+
+          npm run deploy  # Здесь выполните команду для развертывания на GitHub Pages
