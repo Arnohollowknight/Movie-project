@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import Movies from '../components/Movies';
 import Search from '../components/Search';
 import Preloader from '../components/Preloader';
-import { API_KEY } from '../constUrl';
+import { API_KEY, DEFAULT_KEY } from '../constUrl';
 
 interface Movie {
     Title: string;
@@ -19,7 +19,7 @@ const Main = (): JSX.Element => {
 
     useEffect(() => 
       function getMovies() {
-          fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=matrix`)
+          fetch(`https://www.omdbapi.com/?apikey=${API_KEY || DEFAULT_KEY}&s=matrix`)
           .then((response) => response.json())
           .then((data) =>
               {setMovies(data.Search);
@@ -36,7 +36,7 @@ const Main = (): JSX.Element => {
     function searchMovies(str: string | undefined, type: string = 'all') {
       setLoading(true);
       fetch(
-          `https://www.omdbapi.com/?apikey=${API_KEY}&s=${str}${
+          `https://www.omdbapi.com/?apikey=${API_KEY || DEFAULT_KEY}&s=${str}${
               type !== 'all' ? `&type=${type}` : ''
           }`
       )
