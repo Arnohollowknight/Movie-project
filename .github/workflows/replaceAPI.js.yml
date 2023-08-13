@@ -16,16 +16,17 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14' # Выберите желаемую версию Node.js
+          node-version: '14'
 
       - name: Install dependencies
         run: npm install
 
       - name: Build the website
-        run: npm run build # Здесь выполните команду для сборки вашего сайта
+        run: npm run build
 
       - name: Deploy to GitHub Pages
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }} # Используем значение вашего секрета
         run: |
           echo "API_KEY=$REACT_APP_API_KEY" >> .env
-
-          npm run deploy  # Здесь выполните команду для развертывания на GitHub Pages
+          npm run deploy
