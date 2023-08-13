@@ -24,15 +24,13 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
+      - name: Set up environment variables
+        run: echo "API_KEY=$REACT_APP_API_KEY" >> .env
+
       - name: Deploy to GitHub Pages
         env:
-          GH_TOKEN:
-            ${{ secrets.GH_TOKEN }}
-            # Используем значение вашего секрета
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
         run: |
-          echo "API_KEY=$REACT_APP_API_KEY" >> .env
-        uses: JamesIves/github-pages-deploy-action@4.1.1
-        with:
-          branch: gh-pages # Ветка, на которую будет опубликован сайт
-          folder: build # Папка, содержащая собранные файлы
-
+          npm run build
+          npx gh-pages -d build
